@@ -12,6 +12,10 @@ public class Main {
         String input = new Scanner(System.in).nextLine();
         int[] digits = new int[9];
         int number = Integer.parseInt(input);
+        if (number>999999999||number<0) {
+            System.out.println("Specified range doesn't support!");
+            return;
+        }
 
         //получаем число по цифрам
         int j = digits.length;
@@ -61,6 +65,7 @@ public class Main {
         if (digitRanks[2] != 0) {
             propis += Main.parseRank(digitRanks[2]);
         }
+        else System.out.println("ноль");
 
         System.out.println(propis);
     }
@@ -70,6 +75,7 @@ public class Main {
         String result = "";
         if (number == 0) return result;
         Map dictionaryEd = new HashMap();
+        dictionaryEd.put(0, "ноль");
         dictionaryEd.put(1, "один");
         dictionaryEd.put(2, "два");
         dictionaryEd.put(3, "три");
