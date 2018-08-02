@@ -9,15 +9,12 @@ public class NumberParser {
 	private Map<Integer, String> dictionaryDec = new HashMap<>();
 	private Map<Integer, String> dictionarySot = new HashMap<>();
 
-	public NumberParser() {
-		initializeDictionary();
-	}
-
 	//парсинг числа в строкове представление
 	public String parseNumber(String number) {
 		String propis = "";
 		int[] digits = parseToDigits(number);
 		int[] digitRanks = parseToRanks(digits);
+		initializeDictionary();
 
 		//парсинг миллиардов
 		if (digitRanks[0] != 0) {
