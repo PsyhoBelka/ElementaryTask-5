@@ -39,8 +39,7 @@ public class NumberParserTest {
 	
 	@Test
 	public void parseNumber () throws Exception {
-		String ac = numberParser.parseNumber(actual);
-		assertEquals(ac, expected);
+		assertEquals(expected, numberParser.parseNumber(actual));
 	}
 	
 }

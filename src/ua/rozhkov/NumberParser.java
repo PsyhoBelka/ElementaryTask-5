@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NumberParser {
-
+	
+	private static final byte MAX_DIGIT = 12;
+	private static final byte MAX_RANK = 4;
 	private Map<Integer, String> dictionaryEd = new HashMap<>();
 	private Map<Integer, String> dictionaryDec = new HashMap<>();
 	private Map<Integer, String> dictionarySot = new HashMap<>();
@@ -62,7 +64,7 @@ public class NumberParser {
 					propis += " тысяча ";
 				} else {
 					if (digits[8] > 1 && digits[8] <= 4) {
-						propis += " тысячи";
+						propis += " тысячи ";
 					} else {
 						propis += " тысяч ";
 					}
@@ -74,7 +76,7 @@ public class NumberParser {
 		if (digitRanks[3] != 0) {
 			propis += parseRank(digitRanks[3]);
 		} else {
-			propis = dictionaryEd.get(0);
+			//propis = dictionaryEd.get(0);
 		}
 
 		return propis;
@@ -82,7 +84,7 @@ public class NumberParser {
 
 	//получаем число по цифрам
 	private int[] parseToDigits(String number) {
-		int[] result = new int[12];
+		int[] result = new int[MAX_DIGIT];
 		int j = result.length;
 		for (int i = number.length() - 1; i >= 0; i--) {
 			result[j - 1] = Integer.parseInt(number.substring(i, i + 1));
@@ -95,7 +97,7 @@ public class NumberParser {
 	//получаем число по разрядам
 	private int[] parseToRanks(int[] digits) {
 		int j = 0;
-		int[] result = new int[4];
+		int[] result = new int[MAX_RANK];
 		for (int i = 0; i < 4; i++) {
 			result[i] = Integer.parseInt(String.valueOf(digits[j]) + String.valueOf(digits[j + 1]) + String.valueOf(digits[j + 2]));
 			j += 3;
