@@ -10,21 +10,17 @@ public class Main {
 		
 		System.out.print("Input number (max 999 999 999): ");
 		String input = new Scanner(System.in).nextLine();
-		int[] digits = new int[9];
-		int number = Integer.parseInt(input);
-		if ((number > 999999999) || (number < 0)) {
+		int[] digits = new int[11];
+		long number = Long.parseUnsignedLong(input);
+		if ((number > 999999999999L) || (number < 0)) {
 			System.out.println("Specified range doesn't support!");
 			return;
 		}
+
+		NumberParser numberParser = new NumberParser();
+		System.out.println(numberParser.parseNumber(input));
 		
-		Ranks ranks = new Ranks();
-		ranks.listOfRanks.add("");
-		ranks.listOfRanks.add("тысяч");
-		ranks.listOfRanks.add("миллион");
-		ranks.listOfRanks.add("миллиард");
-		
-		
-		//получаем число по цифрам
+		/*//получаем число по цифрам
 		int j = digits.length;
 		for (int i = input.length() - 1; i >= 0; i--) {
 			digits[j - 1] = Integer.parseInt(input.substring(i, i + 1));
@@ -81,9 +77,9 @@ public class Main {
 			propis += Main.parseRank(digitRanks[2]);
 		} else {
 			System.out.println("ноль");
-		}
-		
-		System.out.println(propis);
+		}*/
+
+//		System.out.println(propis);
 	}
 	
 	public static String parseRank (int number) {
