@@ -1,14 +1,10 @@
 package ua.rozhkov;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class NumberParser {
 
-	//	private int[] digits;
-//	private int[] digitRanks;
 	private Map<Integer, String> dictionaryEd = new HashMap<>();
 	private Map<Integer, String> dictionaryDec = new HashMap<>();
 	private Map<Integer, String> dictionarySot = new HashMap<>();
@@ -23,7 +19,6 @@ public class NumberParser {
 		int[] digits = parseToDigits(number);
 		int[] digitRanks = parseToRanks(digits);
 
-		//парсинг по разрядам
 		//парсинг миллиардов
 		if (digitRanks[0] != 0) {
 			propis += parseRank(digitRanks[0]);
@@ -80,7 +75,7 @@ public class NumberParser {
 
 		//парсинг сотен
 		if (digitRanks[3] != 0) {
-			propis += Main.parseRank(digitRanks[3]);
+			propis += parseRank(digitRanks[3]);
 		} else {
 			propis = dictionaryEd.get(0);
 		}
