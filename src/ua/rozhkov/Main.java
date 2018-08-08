@@ -12,7 +12,7 @@ public class Main {
 			number = Long.parseLong(input);
 		}
 		catch (NumberFormatException e) {
-			System.out.println("Input is not a number!");
+			System.out.println("Input is not a number!\nTry input valid number between -999 999 999 999 and 999 999 999 999.");
 			return;
 		}
 		if ((number > 999999999999L) || (number < -999999999999L)) {

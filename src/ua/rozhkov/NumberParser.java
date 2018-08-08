@@ -119,7 +119,7 @@ public class NumberParser {
 	private int[] parseToRanks(int[] digits) {
 		int j = 0;
 		int[] result = new int[MAX_RANK];
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < MAX_RANK; i++) {
 			result[i] = Integer.parseInt(String.valueOf(digits[j]) + String.valueOf(digits[j + 1]) + String.valueOf(digits[j + 2]));
 			j += 3;
 		}
